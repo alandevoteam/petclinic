@@ -1,3 +1,5 @@
+# this test is not finished yet
+
 # import selenium libraries etc
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service

@@ -1,0 +1,29 @@
+{
+    "dockerFile": "Dockerfile",
+    "shutdownAction": "stopContainer",
+    "mounts": [
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
+    ],
+    "containerEnv": {
+      "ANSIBLE_CONFIG": "/etc/ansible/ansible.cfg"
+    },
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.defaultProfile.linux": "bash",
+          "terminal.integrated.profiles.linux": {
+            "bash": {
+              "path": "/bin/bash"
+            }
+          }
+        },
+        "extensions": [
+          "redhat.ansible",
+          "robocorp.robotframework-lsp",
+          "robocorp.robocop-code"
+        ]
+      }
+    }
+  }
+  

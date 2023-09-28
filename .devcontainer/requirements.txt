@@ -1,0 +1,15 @@
+pip==23.2.1
+ansible==8.2.0
+ansible-vault==2.1.0
+ansible-lint==6.17.2
+jsonpath-ng>=1.5.0
+jsonschema>=3.2.0
+RESTinstance==1.3.0
+requests==2.31.0
+robotframework==6.0.2
+robotframework-seleniumlibrary==6.0.0
+robotframework-winrmlibrary==2.0.0
+robotframework-sshlibrary==3.8.0
+robotframework-requests==0.9.5
+robotframework-robocop==3.0.0
+ruff==0.0.285
