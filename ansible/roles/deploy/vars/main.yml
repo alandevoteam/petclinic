@@ -1,2 +1,2 @@
 warfile: petclinic.war
-docker_image_name:  petclinic
+docker_image_name: petclinic
