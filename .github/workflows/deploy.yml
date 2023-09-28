@@ -40,5 +40,5 @@ jobs:
     #     echo "testpetclinic.westeurope.cloudapp.azure.com ansible_user=adminuser ansible_ssh_pass=P@assword1234. VERSION=${{ steps.extract_version.outputs.version }}" >> ~/actions-runner/_work/github-petclinic/github-petclinic/src/test/ansible/inventory.ini
     #     echo "" >> ~/actions-runner/_work/github-petclinic/github-petclinic/src/test/ansible/inventory.ini
 
-    - name: Webapp is in production!
-      run: sleep 10
+    # - name: Open webapp
+    #   run: ipaddress
