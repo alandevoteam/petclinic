@@ -1,10 +1,7 @@
 ---
-ubuntu_host:
+ubuntu_hosts:
   hosts:
     "{{ ubuntu_host }}":
       ansible_connection: ssh
       ansible_ssh_user: adminuser
       ansible_ssh_pass: P@assword1234.
-
-# [testing-vm]
-# testpetclinic.westeurope.cloudapp.azure.com ansible_user=adminuser ansible_ssh_pass=P@assword1234. VERSION=
