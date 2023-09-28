@@ -24,7 +24,7 @@
 
 - name: Copy elasticsearch.yml
   copy:
-    src: /home/alan/actions-runner/_work/github-petclinic/github-petclinic/src/test/elk/elasticsearch.yml
+    src: /home/lenovo/actions-runner/_work/devopspetclinic/devopspetclinic/elastic/elasticsearch.yml
     dest: /etc/elasticsearch/elasticsearch.yml
 
 - name: Enable and start Elasticsearch service
@@ -59,7 +59,7 @@
 
 - name: Copy kibana.yml
   copy:
-    src: /home/alan/actions-runner/_work/github-petclinic/github-petclinic/src/test/elk/kibana.yml
+    src: /home/lenovo/actions-runner/_work/devopspetclinic/devopspetclinic/elastic/kibana.yml
     dest: /etc/kibana/kibana.yml
 
 - name: Enable and start Kibana service
@@ -93,12 +93,12 @@
 
 - name: Copy heartbeat.yml
   copy:
-    src: /home/alan/actions-runner/_work/github-petclinic/github-petclinic/src/test/elk/heartbeat.yml
+    src: /home/lenovo/actions-runner/_work/devopspetclinic/devopspetclinic/elastic/heartbeat.yml
     dest: /etc/heartbeat/heartbeat.yml
 
 - name: Copy metricbeat.yml
   copy:
-    src: /home/alan/actions-runner/_work/github-petclinic/github-petclinic/src/test/elk/metricbeat.yml
+    src: /home/lenovo/actions-runner/_work/devopspetclinic/devopspetclinic/elastic/metricbeat.yml
     dest: /etc/metricbeat/metricbeat.yml
 
 - name: Enable and start Metricbeat service
