@@ -1,5 +1,5 @@
 ---
-ubuntu_hosts:
+ubuntu_host:
   hosts:
     "{{ ubuntu_host }}":
       ansible_connection: ssh
