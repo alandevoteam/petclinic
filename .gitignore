@@ -8,5 +8,11 @@ bin/
 .idea
 *.iml
 
-# Maven
+# DevOps
 target/
+**/logs/**
+**/__pycache__/**
+.vscode/settings.json
+vault_password.txt
+terraform/.terraform*
+terraform/terraform.tfstate*
