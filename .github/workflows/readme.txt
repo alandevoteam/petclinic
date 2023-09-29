@@ -1,5 +1,10 @@
     Old content
     
+    # - name: Confirm Git identity
+    #   run: |
+    #     git config --global user.email "alan.ahmad@devoteam.com"
+    #     git config --global user.name "alandevoteam"
+    
     # - name: Extract version from POM file
     #   id: extract_version
     #   run: |
