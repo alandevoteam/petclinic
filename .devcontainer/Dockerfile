@@ -15,6 +15,7 @@ RUN dnf -y update && dnf -y install \
     python3-pip \
     iputils \
     sshpass \
+    maven \
     && dnf clean all
 
 ARG GOOGLE_CHROME_VERSION=115.0.5790.170

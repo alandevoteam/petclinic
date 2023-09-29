@@ -3,24 +3,20 @@
   apt_key:
     url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     state: present
-  become: yes
 
 - name: Add the Elasticsearch repository to the system
   apt_repository:
     repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
     state: present
-  become: yes
 
 - name: Update system packages again
   apt:
     update_cache: yes
-  become: yes
 
 - name: Install Elasticsearch
   apt:
     name: elasticsearch
     state: present
-  become: yes
 
 - name: Copy elasticsearch.yml
   copy:
@@ -32,30 +28,25 @@
     name: elasticsearch
     state: started
     enabled: yes
-  become: yes
 
 - name: Download and install the Kibana repository's GPG key
   apt_key:
     url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     state: present
-  become: yes
 
 - name: Add the Kibana repository to the system
   apt_repository:
     repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
     state: present
-  become: yes
 
 - name: Update system packages again
   apt:
     update_cache: yes
-  become: yes
 
 - name: Install Kibana
   apt:
     name: kibana
     state: present
-  become: yes
 
 - name: Copy kibana.yml
   copy:
@@ -67,7 +58,6 @@
     name: kibana
     state: started
     enabled: yes
-  become: yes
 
 - name: Download Metricbeat package
   get_url:
@@ -78,7 +68,6 @@
   apt:
     deb: /tmp/metricbeat-7.15.2-amd64.deb
     state: present
-  become: yes
 
 - name: Download Heartbeat package
   get_url:
@@ -89,7 +78,6 @@
   apt:
     deb: /tmp/heartbeat-7.15.2-amd64.deb
     state: present
-  become: yes
 
 - name: Copy heartbeat.yml
   copy:
@@ -106,14 +94,12 @@
     name: metricbeat
     state: started
     enabled: yes
-  become: yes
 
 - name: Enable and start Heartbeat service
   systemd:
     name: heartbeat-elastic
     state: started
     enabled: yes
-  become: yes
 
 - name: Pause for Kibana to start
   pause:
