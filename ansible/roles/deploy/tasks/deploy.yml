@@ -41,6 +41,7 @@
 - name: Pull Docker image
   community.docker.docker_image:
     name: "{{ deploy_docker_image }}"
+    source: pull
     state: present
 
 - name: Run Docker container
