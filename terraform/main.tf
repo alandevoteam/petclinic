@@ -62,14 +62,16 @@ resource "azurerm_network_interface" "nic" {
   tags                = var.tags
 
   ip_configuration {
-    name                          = "internal"
+    name                          = "ipconfig1"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.vm_public_ip.id
-
-    # Associate with the NSG using network_security_group_id
-    network_security_group_id     = azurerm_network_security_group.nsg.id
   }
+}
+
+resource "azurerm_network_interface_security_group_association" "nsg_association" {
+  network_interface_id    = azurerm_network_interface.nic.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
