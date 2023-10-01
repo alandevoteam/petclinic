@@ -1,7 +1,6 @@
 ---
 - name: Deploy
   hosts: devopspetclinic.westeurope.cloudapp.azure.com
-  connection: ssh
   become: true
   tasks:
     - name: Run deploy

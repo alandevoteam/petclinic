@@ -2,6 +2,5 @@
 ubuntu_host:
   hosts:
     devopspetclinic.westeurope.cloudapp.azure.com:
-      ansible_connection: ssh
       ansible_ssh_user: adminuser
       ansible_ssh_pass: P@assword1234.
