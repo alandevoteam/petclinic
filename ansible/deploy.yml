@@ -1,6 +1,7 @@
 ---
 - name: Deploy
   hosts: ubuntu-host
+  become: true
   tasks:
     - name: Run deploy
       ansible.builtin.import_role:

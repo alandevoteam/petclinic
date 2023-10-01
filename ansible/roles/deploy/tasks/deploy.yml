@@ -1,12 +1,4 @@
 ---
-- name: Install aptitude using apt
-  ansible.builtin.apt:
-    name: aptitude
-    state: present
-    update_cache: true
-    force_apt_get: true
-  tags: install_aptitude
-
 - name: Install required system packages
   ansible.builtin.apt:
     name: "{{ item }}"
@@ -49,7 +41,6 @@
 - name: Pull Docker image
   community.docker.docker_image:
     name: "{{ deploy_docker_image }}"
-    source: "{{ deploy_docker_image }}"
     state: present
 
 - name: Run Docker container
