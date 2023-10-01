@@ -31,4 +31,5 @@ jobs:
 
     - name: Kick off Ansible deploy
       working-directory: ./ansible
-      run: ansible-playbook deploy.yml -i inventory.ini
+      run: ssh-keyscan -H devopspetclinic.westeurope.cloudapp.azure.com >> ~/.ssh/known_hosts && ansible-playbook deploy.yml -i inventory.ini
+
