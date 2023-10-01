@@ -1,32 +1,50 @@
 ---
-- name: Update apt cache
+- name: Install aptitude using apt
   ansible.builtin.apt:
+    name: aptitude
+    state: present
     update_cache: true
+    force_apt_get: true
+  tags: install_aptitude
 
-- name: Install Docker dependencies
+- name: Install required system packages
   ansible.builtin.apt:
-    name:
-      - 'apt-transport-https'
-      - 'ca-certificates'
-      - 'curl'
-      - 'software-properties-common'
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - 'apt-transport-https'
+    - 'ca-certificates'
+    - 'curl'
+    - 'software-properties-common'
+    - 'python3-pip'
+    - 'virtualenv'
+    - 'python3-setuptools'
+  tags: install_system_packages
 
-- name: Add Docker GPG key
+- name: Add Docker GPG apt Key
   ansible.builtin.apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
-  when: not docker_key_added.stdout | bool  # Add a similar check for the repository
+  tags: add_docker_gpg_key
 
-- name: Add Docker repository
+- name: Add Docker Repository
   ansible.builtin.apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
     state: present
-  when: not docker_repo_added.stdout | bool  # Add a similar check for the key
+  tags: add_docker_repository
 
-- name: Install Docker
+- name: Update apt and install docker-ce
   ansible.builtin.apt:
+    update_cache: true
     name: docker-ce
     state: present
+  tags: install_docker_ce
+
+- name: Install Docker Module for Python
+  ansible.builtin.pip:
+    name: docker
+  tags: install_docker_python_module
 
 - name: Pull Docker image
   community.docker.docker_image:
