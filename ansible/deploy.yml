@@ -1,6 +1,6 @@
 ---
 - name: Deploy
-  hosts: devopspetclinic.westeurope.cloudapp.azure.com
+  hosts: ubuntu-host
   become: true
   tasks:
     - name: Run deploy

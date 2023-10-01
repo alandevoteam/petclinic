@@ -31,4 +31,4 @@ jobs:
 
     - name: Kick off Ansible deploy
       working-directory: ./ansible
-      run: ansible-playbook deploy.yml -i inventory.yml
+      run: ansible-playbook deploy.yml -i inventory.ini
