@@ -16,7 +16,7 @@ jobs:
   
     - name: Terraform apply
       run: |
-        cd ~/actions-runner/_work/petclinic/petclinic/devops/terraform
+        cd ~/actions-runner/_work/petclinic/petclinic/terraform
         terraform init
         terraform apply -auto-approve
         
