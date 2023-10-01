@@ -1,9 +1,9 @@
-name: Build Azure resources
+name: Create Azure resources
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  create:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
