@@ -5,7 +5,7 @@ on:   # yamllint disable-line rule:truthy
       - '**'    # matches every branch
 
 jobs:
-  Run_ADDS_Terraform_validate:
+  Run_Terraform_validate:
     runs-on: ubuntu-22.04
     steps:
       - name: Get code
