@@ -1,7 +1,7 @@
 ---
 ubuntu_host:
   hosts:
-    "{{ ubuntu_host }}":
+    devopspetclinic.westeurope.cloudapp.azure.com:
       ansible_connection: ssh
       ansible_ssh_user: adminuser
       ansible_ssh_pass: P@assword1234.

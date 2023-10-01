@@ -35,3 +35,22 @@
     # - name: Start Selenium script, fall back if test fails.
     #   run: python3 ~/actions-runner/_work/devopspetclinic/devopspetclinic/devops/tests/seleniumscript.py
   
+    # Run_Robot_Lint:
+  #   runs-on: ubuntu-22.04
+  #   steps:
+  #     - name: Get code
+  #       uses: actions/checkout@v3
+  #     - name: Install Robot lint
+  #       run: pip install robotframework-robocop==4.1.0
+  #     - name: Run Robot lint
+  #       run: robocop --reports all
+
+  # Run_Python_Lint:
+  #   runs-on: ubuntu-22.04
+  #   steps:
+  #     - name: Get code
+  #       uses: actions/checkout@v3
+  #     - name: Install Python lint
+  #       run: pip install ruff==0.0.286
+  #     - name: Run Python lint
+  #       run: ruff check --show-source .

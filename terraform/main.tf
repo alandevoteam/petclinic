@@ -46,11 +46,13 @@ resource "azurerm_network_security_group" "nsg" {
 
 resource "azurerm_public_ip" "vm_public_ip" {
   name                = var.vm_public_ip
-  location            = var.rg_location
+  location            = var.rg_locationyes
   resource_group_name = var.rg_name
   allocation_method   = "Static"
   sku                 = "Standard"
   tags                = var.tags
+
+  domain_name_label   = "devopspetclinic"  # Specify the DNS name label here
 }
 
 resource "azurerm_network_interface" "nic" {

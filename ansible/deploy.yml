@@ -2,6 +2,7 @@
 - name: Deploy
   hosts: ubuntu-host
   connection: ssh
+  become: true
   tasks:
     - name: Run deploy
       ansible.builtin.import_role:

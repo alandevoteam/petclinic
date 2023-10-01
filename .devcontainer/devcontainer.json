@@ -20,8 +20,8 @@
         },
         "extensions": [
           "redhat.ansible",
-          "robocorp.robotframework-lsp",
-          "robocorp.robocop-code"
+          // "robocorp.robotframework-lsp",
+          // "robocorp.robocop-code"
         ]
       }
     }

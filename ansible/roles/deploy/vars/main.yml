@@ -1,1 +1,3 @@
-# docker_image_name: alandevoteam/tomcat-petclinic
+deploy_docker_image: alandevoteam/petclinic:latest
+deploy_container: "petclinic-container"
+deploy_ports: "8080:80"

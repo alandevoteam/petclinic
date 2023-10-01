@@ -15,23 +15,28 @@
   ansible.builtin.apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
+  when: not docker_key_added.stdout | bool  # Add a similar check for the repository
 
 - name: Add Docker repository
   ansible.builtin.apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
     state: present
+  when: not docker_repo_added.stdout | bool  # Add a similar check for the key
 
 - name: Install Docker
   ansible.builtin.apt:
     name: docker-ce
     state: present
 
-# - name: Pull Docker image
-#   ansible.builtin.shell: docker build -t {{ docker_image_name }} /home/adminuser
-#   args:
-#     creates: /path/to/created_file  # Specify a file that indicates whether the task is needed
+- name: Pull Docker image
+  community.docker.docker_image:
+    name: "{{ deploy_docker_image }}"
+    source: "{{ deploy_docker_image }}"
+    state: present
 
-# - name: Run Docker container
-#   ansible.builtin.shell: docker run -d -p 8080:8080 {{ docker_image_name }}
-#   args:
-#     creates: /path/to/created_file  # Specify a file that indicates whether the task is needed
+- name: Run Docker container
+  community.docker.docker_container:
+    name: "{{ deploy_container }}"
+    image: "{{ deploy_docker_image }}"
+    state: started
+    ports: "{{ deploy_ports }}"

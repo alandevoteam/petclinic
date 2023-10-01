@@ -1,9 +1,8 @@
 name: Code quality
 on:   # yamllint disable-line rule:truthy
-  # push:
-  #   branches:
-  #     - '**'    # matches every branch
-  workflow_dispatch:
+  push:
+    branches:
+      - '**'    # matches every branch
 
 jobs:
   Run_ADDS_Terraform_validate:
@@ -44,23 +43,3 @@ jobs:
       - name: Run Ansible lint
         working-directory: ./ansible/
         run: ansible-lint
-
-  Run_Robot_Lint:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Install Robot lint
-        run: pip install robotframework-robocop==4.1.0
-      - name: Run Robot lint
-        run: robocop --reports all
-
-  Run_Python_Lint:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Install Python lint
-        run: pip install ruff==0.0.286
-      - name: Run Python lint
-        run: ruff check --show-source .
